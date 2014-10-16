@@ -1,9 +1,15 @@
-<!doctype html>
-<html>
-  <head>
-    <title>OMDB API Example</title>
-  </head>
-  <body>
-    Replace me with a form
-  </body>
-</html>
+<% include partials/header %>
+<div class="">
+  <div class="pure-g ">
+    <div class="pure-u-1">
+      <h1>Search for a movie, and shit</h1>
+      <h2>Enter to look up a movie by its title</h2>
+      <form class="pure-form pure-form-stacked" method="get" action="/search">
+        <input id="movie" name="s" type="text" placeholder="Search for a movie">
+        <button class="button-success pure-button" type="submit" >Search</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<% include partials/footer %>

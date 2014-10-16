@@ -1,9 +1,22 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Movie Search Results</title>
-  </head>
-  <body>
-    Replace me with a list of movies
+<% include partials/header %>
+<div class="pure-g results">
+  <div class="pure-u-1">
+    <h1>Showing results for: <span><%= searchTerm %></span></h1>
+
+     <% movieList.forEach(function(movie){%>
+      <div class="resultItem <%= movie.Type %>">
+        <div class="inner">
+          <p>- <%= movie.Type %> -</p>
+          <h2><%= movie.Title %></h2>
+          <a href="/movie/<%= movie.imdbID %>">View <%= movie.Type %> info</a>
+        </div>
+      </div>
+    <%})%>
+  </div>
+</div>
+<% include partials/footer %>
+
+
+
   </body>
 </html>

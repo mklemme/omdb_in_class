@@ -1,0 +1,24 @@
+<% include partials/header %>
+  <div class="pure-g">
+    <div class="pure-u-1-4">
+      <img src="<%= movie.Poster %>">
+    </div>
+    <div class="pure-u-1-2">
+      <div class="inner">
+        <h1><%= movie.Title %> <span class="year"><%= movie.Year %></span></h1>
+        <p class="plot"><%= movie.Plot %></p>
+        <p class="details lightUI director">Director: <span><%= movie.Director %></span></p>
+        <p class="details lightUI cast">Cast <span><%= movie.title %></span></p>
+      </div>
+    </div>
+    <div class="pure-u-1-4">
+      <li class="details">Genre: <span><%= movie.Genre %></span> </li>
+      <li class="details">Runtime:</li>
+      <a href="#" class="favButton">Add to favorites</a>
+    </div>
+  </div>
+  <script>
+    var title = "<%= movie.title %>";
+    var id = "<%= movie.imdbID %>";
+  </script>
+<% include partials/footer %>

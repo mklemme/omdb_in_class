@@ -2,23 +2,59 @@ function start(){
   favButton();
   console.log("Starting the engine");
 
+  if( favoritedMovie === true ){
+    $(".favButton").addClass("favd").text("Added to favorites");
+    console.log("Not in fav");
+  }
 }
 
-function Favorite(){
-  this.id = id;
-  this.title = title;
-  // favorites.push(this);
-}
-function favButton(title, id){
-  $( ".favButton" ).toggle(function(e) {
-      e.preventDefault();
-      // new Favorite(title, id);
-      console.log("Added" + title + " to favorites");
-      // console.log(favorites);
+function favButton(){
+  $(".favButton" ).click(function() {
+    if(favoritedMovie === false){
+      $(".favButton").addClass("favd").text("Added to favorites");
+      addFav(title, id, img);
+    } else{
+      $( ".favButton").removeClass("favd").text("Add to favorites");
+      delFav(title, id);
 
-      $( ".favButton" ).addClass("favd").text("Added to favorites");
-  }, function(e) {
-      e.preventDefault();
-      $( ".favButton" ).removeClass("favd").text("Add to favorites");
+    }
+  });
+}
+// function favButton(){
+//   console.log(favorites);
+//   $( ".favButton" ).toggle(function(e) {
+//       e.preventDefault();
+
+//       addFav(title, id, img);
+
+//       $( ".favButton" ).addClass("favd").text("Added to favorites");
+//   }, function(e) {
+//       e.preventDefault();
+
+//       delFav(title, id);
+
+//       $( ".favButton" ).removeClass("favd").text("Add to favorites");
+//   });
+// }
+function addFav(title, id){
+  $.ajax({
+    type: 'PUT',
+    url: '/favorites/add',
+    dataType: 'json',
+    data: {'title': title, 'id': id, 'img': img},
+    success: function(data){
+      console.log("Added " + title + " to your favorites! :)");
+    }
+  });
+}
+function delFav(title, id){
+  $.ajax({
+    type: 'POST',
+    url: '/favorites/delete',
+    dataType: 'json',
+    data: {'id': id},
+    success: function(data){
+      console.log("Removed " + title + " to your favorites! :)");
+    }
   });
 }

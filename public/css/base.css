@@ -71,6 +71,7 @@ header nav a:hover{
   box-shadow: none !important;
   background: rgba(255,255,255,.1);
   border-radius: 4px;
+    transition: all .2s;
 }
 
 .searchbar button{
@@ -92,7 +93,9 @@ header nav a:hover{
 .searchbar button:hover{
   background: #556A52;
 }
-
+.searchbar:hover input[type=text]{
+  background: rgba(255,255,255,.15);
+}
 
 
 

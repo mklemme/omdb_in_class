@@ -1,7 +1,7 @@
 <% include partials/header %>
   <div class="pure-g">
     <div class="pure-u-1-4">
-      <img src="<%= movie.Poster %>">
+      <img class="pure-img" src="<%= movie.Poster %>">
     </div>
     <div class="pure-u-1-2">
       <div class="inner">
@@ -12,13 +12,15 @@
       </div>
     </div>
     <div class="pure-u-1-4">
-      <li class="details">Genre: <span><%= movie.Genre %></span> </li>
-      <li class="details">Runtime:</li>
+      <li class="details darkUI">Genre: <span><%= movie.Genre %></span> </li>
+      <li class="details darkUI">Runtime:</li>
       <a href="#" class="favButton">Add to favorites</a>
     </div>
   </div>
   <script>
-    var title = "<%= movie.title %>";
-    var id = "<%= movie.imdbID %>";
+    title = "<%= movie.Title %>";
+    id = "<%= movie.imdbID %>";
+    img = "<%= movie.Poster %>";
+    favoritedMovie = <%= favoritedMovie %>;
   </script>
 <% include partials/footer %>

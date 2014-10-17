@@ -1,0 +1,17 @@
+<% include partials/header %>
+<div class="">
+  <div class="pure-g ">
+    <div class="pure-u-1">
+
+      <% favorites.forEach(function(favorite){ %>
+      <img class="pure-img" src="<%= favorite.img %>">
+        <li><%= favorite.title %></li>
+        <a href="/movie/<%= favorite.id %>">Edit</a>
+
+        <hr>
+      <% });%>
+    </div>
+  </div>
+</div>
+
+<% include partials/footer %>

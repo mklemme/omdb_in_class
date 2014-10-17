@@ -10,13 +10,13 @@ function start(){
 
 function favButton(){
   $(".favButton" ).click(function() {
-    if(favoritedMovie === false){
-      $(".favButton").addClass("favd").text("Added to favorites");
-      addFav(title, id, img);
-    } else{
+    if($(".favButton").hasClass("favd")){
       $( ".favButton").removeClass("favd").text("Add to favorites");
       delFav(title, id);
 
+    } else{
+      $(".favButton").addClass("favd").text("Added to favorites");
+      addFav(title, id, img);
     }
   });
 }
